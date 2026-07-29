@@ -105,9 +105,19 @@ jobs:
         BC="${{ steps.gdt.outputs.DEVICE_PATH }}/BoardConfig.mk"
         sed -i '/TARGET_BUILD_VARIANT/d' "$BC"
         {
+          echo "TARGET_BUILD_VARIANT := userdebug"
           echo "TW_EXCLUDE_TWRPAPP := true"
           echo "TW_EXCLUDE_SUPERSU := true"
+          echo "TW_EXCLUDE_ENCRYPTED_BACKUPS := true"
+          echo "TW_EXCLUDE_DEFAULT_USB_INIT := true"
+          echo "TW_EXCLUDE_MTP := true"
+          echo "TW_EXCLUDE_FONTS := true"
+          echo "TW_NO_SCREEN_TIMEOUT := true"
           echo "TW_DEFAULT_LANGUAGE := en"
+          echo "TARGET_USES_LOGD := false"
+          echo "BOARD_USES_MMS_HARDWARE := false"
+          echo "TW_USE_TOOLBOX := true"
+          echo "LZMA_RAMDISK_TARGETS := recovery"
         } >> "$BC"
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
       
