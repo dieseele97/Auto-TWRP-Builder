@@ -103,9 +103,9 @@ jobs:
     - name: Fix BoardConfig immediately after generation
       run: |
         BC="${{ steps.gdt.outputs.DEVICE_PATH }}/BoardConfig.mk"
-        sed -i '/TARGET_BUILD_VARIANT/d' "$BC"
+       
         {
-          echo "TARGET_BUILD_VARIANT := userdebug"
+          
           echo "TW_EXCLUDE_TWRPAPP := true"
           echo "TW_EXCLUDE_SUPERSU := true"
           echo "TW_EXCLUDE_ENCRYPTED_BACKUPS := true"
