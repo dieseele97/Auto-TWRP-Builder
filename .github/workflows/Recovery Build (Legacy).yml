@@ -105,7 +105,7 @@ jobs:
         BC="${{ steps.gdt.outputs.DEVICE_PATH }}/BoardConfig.mk"
        
         {
-          
+          echo "BOARD_INCLUDE_RECOVERY_DTBO := false" >> "$BC"
           echo "TW_EXCLUDE_TWRPAPP := true"
           echo "TW_EXCLUDE_SUPERSU := true"
           echo "TW_EXCLUDE_ENCRYPTED_BACKUPS := true"
